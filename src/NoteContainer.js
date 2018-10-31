@@ -23,7 +23,9 @@ class NoteContainer extends React.Component {
 	}
 	componentDidMount = () => {
 		const noteID = parseInt(this.props.match.params.id, 10);
-		Axios.get(`http://localhost:3300/notes/${noteID}`).then(note => {
+		Axios.get(
+			`https://lambda-notes-server-patrick.herokuapp.com/notes/${noteID}`
+		).then(note => {
 			console.log(note);
 			this.setState({ title: note.data[0].title, body: note.data[0].body });
 		});
